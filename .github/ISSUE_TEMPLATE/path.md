@@ -1,5 +1,0 @@
----
-name: "package:path"
-about: "Create a bug or file a feature request against package:path."
-labels: "package:path"
----

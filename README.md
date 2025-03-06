@@ -1,45 +1,99 @@
-<!-- [![Dart CI](https://github.com/dart-lang/core/actions/workflows/dart.yml/badge.svg)](https://github.com/dart-lang/core/actions/workflows/dart.yml) -->
+[![Dart CI](https://github.com/dart-lang/core/actions/workflows/async.yaml/badge.svg)](https://github.com/dart-lang/core/actions/workflows/async.yaml)
+[![pub package](https://img.shields.io/pub/v/async.svg)](https://pub.dev/packages/async)
+[![package publisher](https://img.shields.io/pub/publisher/async.svg)](https://pub.dev/packages/async/publisher)
 
-## Overview
+Contains utility classes in the style of `dart:async` to work with asynchronous
+computations.
 
-This repository is home to various Dart packages under the [dart.dev](https://pub.dev/publishers/dart.dev/packages) publisher.
+## Package API
 
-## Packages
+* The [`AsyncCache`][AsyncCache] class allows expensive asynchronous
+  computations values to be cached for a period of time.
 
-| Package | Description | Issues | Version |
-| --- | --- | --- | --- |
-| [args](pkgs/args/) | Library for defining parsers for parsing raw command-line arguments into a set of options and values using GNU and POSIX style options. | [![issues](https://img.shields.io/badge/issues-4774bc)][args_issues] | [![pub package](https://img.shields.io/pub/v/args.svg)](https://pub.dev/packages/args) |
-| [async](pkgs/async/) | Utility functions and classes related to the 'dart:async' library. | [![issues](https://img.shields.io/badge/issues-4774bc)][async_issues] | [![pub package](https://img.shields.io/pub/v/async.svg)](https://pub.dev/packages/async) |
-| [characters](pkgs/characters/) | String replacement with operations that are Unicode/grapheme cluster aware. | [![issues](https://img.shields.io/badge/issues-4774bc)][characters_issues] | [![pub package](https://img.shields.io/pub/v/characters.svg)](https://pub.dev/packages/characters) |
-| [collection](pkgs/collection/) | Collections and utilities functions and classes related to collections. | [![issues](https://img.shields.io/badge/issues-4774bc)][collection_issues] | [![pub package](https://img.shields.io/pub/v/collection.svg)](https://pub.dev/packages/collection) |
-| [convert](pkgs/convert/) | Utilities for converting between data representations. Provides a number of Sink, Codec, Decoder, and Encoder types. | [![issues](https://img.shields.io/badge/issues-4774bc)][convert_issues] | [![pub package](https://img.shields.io/pub/v/convert.svg)](https://pub.dev/packages/convert) |
-| [crypto](pkgs/crypto/) | Implementations of SHA, MD5, and HMAC cryptographic functions. | [![issues](https://img.shields.io/badge/issues-4774bc)][crypto_issues] | [![pub package](https://img.shields.io/pub/v/crypto.svg)](https://pub.dev/packages/crypto) |
-| [fixnum](pkgs/fixnum/) | Library for 32- and 64-bit signed fixed-width integers with consistent behavior between native and JS runtimes. | [![issues](https://img.shields.io/badge/issues-4774bc)][fixnum_issues] | [![pub package](https://img.shields.io/pub/v/fixnum.svg)](https://pub.dev/packages/fixnum) |
-| [lints](pkgs/lints/) | Official Dart lint rules. Defines the 'core' and 'recommended' set of lints suggested by the Dart team. | [![issues](https://img.shields.io/badge/issues-4774bc)][lints_issues] | [![pub package](https://img.shields.io/pub/v/lints.svg)](https://pub.dev/packages/lints) |
-| [logging](pkgs/logging/) | Provides APIs for debugging and error logging, similar to loggers in other languages, such as the Closure JS Logger and java.util.logging.Logger. | [![issues](https://img.shields.io/badge/issues-4774bc)][logging_issues] | [![pub package](https://img.shields.io/pub/v/logging.svg)](https://pub.dev/packages/logging) |
-| [os_detect](pkgs/os_detect/) | Platform independent OS detection. | [![issues](https://img.shields.io/badge/issues-4774bc)][os_detect_issues] | [![pub package](https://img.shields.io/pub/v/os_detect.svg)](https://pub.dev/packages/os_detect) |
-| [path](pkgs/path/) | A string-based path manipulation library. | [![issues](https://img.shields.io/badge/issues-4774bc)][path_issues] | [![pub package](https://img.shields.io/pub/v/path.svg)](https://pub.dev/packages/path) |
-| [platform](pkgs/platform/) | A pluggable, mockable platform information abstraction for Dart. | [![issues](https://img.shields.io/badge/issues-4774bc)][platform_issues] | [![pub package](https://img.shields.io/pub/v/platform.svg)](https://pub.dev/packages/platform) |
-| [typed_data](pkgs/typed_data/) | Utility functions and classes related to the dart:typed_data library. | [![issues](https://img.shields.io/badge/issues-4774bc)][typed_data_issues] | [![pub package](https://img.shields.io/pub/v/typed_data.svg)](https://pub.dev/packages/typed_data) |
+* The [`AsyncMemoizer`][AsyncMemoizer] class makes it easy to only run an
+  asynchronous operation once on demand.
 
-[args_issues]: https://github.com/dart-lang/core/issues?q=is%3Aissue+is%3Aopen+label%3Apackage%3Aargs
-[async_issues]: https://github.com/dart-lang/core/issues?q=is%3Aissue+is%3Aopen+label%3Apackage%3Aasync
-[characters_issues]: https://github.com/dart-lang/core/issues?q=is%3Aissue+is%3Aopen+label%3Apackage%3Acharacters
-[collection_issues]: https://github.com/dart-lang/core/issues?q=is%3Aissue+is%3Aopen+label%3Apackage%3Acollection
-[convert_issues]: https://github.com/dart-lang/core/issues?q=is%3Aissue+is%3Aopen+label%3Apackage%3Aconvert
-[crypto_issues]: https://github.com/dart-lang/core/issues?q=is%3Aissue+is%3Aopen+label%3Apackage%3Acrypto
-[fixnum_issues]: https://github.com/dart-lang/core/issues?q=is%3Aissue+is%3Aopen+label%3Apackage%3Afixnum
-[lints_issues]: https://github.com/dart-lang/core/issues?q=is%3Aissue+is%3Aopen+label%3Apackage%3Alints
-[logging_issues]: https://github.com/dart-lang/core/issues?q=is%3Aissue+is%3Aopen+label%3Apackage%3Alogging
-[os_detect_issues]: https://github.com/dart-lang/core/issues?q=is%3Aissue+is%3Aopen+label%3Apackage%3Aos_detect
-[path_issues]: https://github.com/dart-lang/core/issues?q=is%3Aissue+is%3Aopen+label%3Apackage%3Apath
-[platform_issues]: https://github.com/dart-lang/core/issues
-[typed_data_issues]: https://github.com/dart-lang/core/issues?q=is%3Aissue+is%3Aopen+label%3Apackage%3Atyped_data
+* The [`CancelableOperation`][CancelableOperation] class defines an operation
+  that can be canceled by its consumer. The producer can then listen for this
+  cancellation and stop producing the future when it's received. It can be
+  created using a [`CancelableCompleter`][CancelableCompleter].
+
+* The delegating wrapper classes allow users to easily add functionality on top
+  of existing instances of core types from `dart:async`. These include
+  [`DelegatingFuture`][DelegatingFuture],
+  [`DelegatingStream`][DelegatingStream],
+  [`DelegatingStreamSubscription`][DelegatingStreamSubscription],
+  [`DelegatingStreamConsumer`][DelegatingStreamConsumer],
+  [`DelegatingSink`][DelegatingSink],
+  [`DelegatingEventSink`][DelegatingEventSink], and
+  [`DelegatingStreamSink`][DelegatingStreamSink].
+
+* The [`FutureGroup`][FutureGroup] class makes it easy to wait until a group of
+  futures that may change over time completes.
+
+* The [`LazyStream`][LazyStream] class allows a stream to be initialized lazily
+  when `.listen()` is first called.
+
+* The [`NullStreamSink`][NullStreamSink] class is an implementation of
+  `StreamSink` that discards all events.
+
+* The [`RestartableTimer`][RestartableTimer] class extends `Timer` with a
+  `reset()` method.
+
+* The [`Result`][Result] class that can hold either a value or an error. It
+  provides various utilities for converting to and from `Future`s and `Stream`s.
+
+* The [`StreamGroup`][StreamGroup] class merges a collection of streams into a
+  single output stream.
+
+* The [`StreamQueue`][StreamQueue] class allows a stream to be consumed
+  event-by-event rather than being pushed whichever events as soon as they
+  arrive.
+
+* The [`StreamSplitter`][StreamSplitter] class allows a stream to be duplicated
+  into multiple identical streams.
+
+* The [`StreamZip`][StreamZip] class combines multiple streams into a single
+  stream of lists of events.
+
+* This package contains a number of [`StreamTransformer`][StreamTransformer]s.
+  [`SingleSubscriptionTransformer`][SingleSubscriptionTransformer] converts a
+  broadcast stream to a single-subscription stream, and
+  [`typedStreamTransformer`][typedStreamTransformer] casts the type of a
+  `Stream`. It also defines a transformer type for [`StreamSink`][StreamSink]s,
+  [`StreamSinkTransformer`][StreamSinkTransformer].
+
+* The [`SubscriptionStream`][SubscriptionStream] class wraps a
+  `StreamSubscription` so it can be re-used as a `Stream`.
+
+[AsyncCache]: https://pub.dev/documentation/async/latest/async/AsyncCache-class.html
+[AsyncMemoizer]: https://pub.dev/documentation/async/latest/async/AsyncMemoizer-class.html
+[CancelableCompleter]: https://pub.dev/documentation/async/latest/async/CancelableCompleter-class.html
+[CancelableOperation]: https://pub.dev/documentation/async/latest/async/CancelableOperation-class.html
+[DelegatingEventSink]: https://pub.dev/documentation/async/latest/async/DelegatingEventSink-class.html
+[DelegatingFuture]: https://pub.dev/documentation/async/latest/async/DelegatingFuture-class.html
+[DelegatingSink]: https://pub.dev/documentation/async/latest/async/DelegatingSink-class.html
+[DelegatingStreamConsumer]: https://pub.dev/documentation/async/latest/async/DelegatingStreamConsumer-class.html
+[DelegatingStreamSink]: https://pub.dev/documentation/async/latest/async/DelegatingStreamSink-class.html
+[DelegatingStreamSubscription]: https://pub.dev/documentation/async/latest/async/DelegatingStreamSubscription-class.html
+[DelegatingStream]: https://pub.dev/documentation/async/latest/async/DelegatingStream-class.html
+[FutureGroup]: https://pub.dev/documentation/async/latest/async/FutureGroup-class.html
+[LazyStream]: https://pub.dev/documentation/async/latest/async/LazyStream-class.html
+[NullStreamSink]: https://pub.dev/documentation/async/latest/async/NullStreamSink-class.html
+[RestartableTimer]: https://pub.dev/documentation/async/latest/async/RestartableTimer-class.html
+[Result]: https://pub.dev/documentation/async/latest/async/Result-class.html
+[SingleSubscriptionTransformer]: https://pub.dev/documentation/async/latest/async/SingleSubscriptionTransformer-class.html
+[StreamGroup]: https://pub.dev/documentation/async/latest/async/StreamGroup-class.html
+[StreamQueue]: https://pub.dev/documentation/async/latest/async/StreamQueue-class.html
+[StreamSinkTransformer]: https://pub.dev/documentation/async/latest/async/StreamSinkTransformer-class.html
+[StreamSink]: https://api.dart.dev/stable/dart-async/StreamSink-class.html
+[StreamSplitter]: https://pub.dev/documentation/async/latest/async/StreamSplitter-class.html
+[StreamTransformer]: https://api.dart.dev/stable/dart-async/StreamTransformer-class.html
+[StreamZip]: https://pub.dev/documentation/async/latest/async/StreamZip-class.html
+[SubscriptionStream]: https://pub.dev/documentation/async/latest/async/SubscriptionStream-class.html
+[typedStreamTransformer]: https://pub.dev/documentation/async/latest/async/typedStreamTransformer.html
 
 ## Publishing automation
 
 For information about our publishing automation and release process, see
 https://github.com/dart-lang/ecosystem/wiki/Publishing-automation.
-
-For additional information about contributing, see our
-[contributing](CONTRIBUTING.md) page.
